@@ -20,8 +20,13 @@ setup(
     author='Vincent Driessen',
     author_email='vincent@3rdcloud.com',
     description=__doc__.strip('\n'),
-    #packages=[],
-    scripts=['bin/pip-review', 'bin/pip-dump'],
+    entry_points={
+        'console_scripts': [
+            'pip-review = piptools.review:main',
+            'pip-dump = piptools.dump:main',
+        ]
+    },
+    packages=['piptools'],
     #include_package_data=True,
     zip_safe=False,
     platforms='any',

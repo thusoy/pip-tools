@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from __future__ import absolute_import
 import os
 import re
@@ -39,7 +38,7 @@ except (ImportError, AttributeError):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(
+    parser = argparse.ArgumentParser(prog='pip-review',
         description='Keeps your Python package dependencies pinned, '
                     'but fresh.')
     parser.add_argument(
@@ -141,6 +140,7 @@ def get_installed_pkgs(local=False):
     output = check_output(command).decode('utf-8')
 
     for line in output.split('\n'):
+        line = line.strip()
         if not line or line.startswith('##'):
             continue
 
@@ -269,7 +269,3 @@ def main():
 
     if all_ok and not args.raw:
         logger.info('Everything up-to-date')
-
-
-if __name__ == '__main__':
-    main()

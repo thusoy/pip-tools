@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 from __future__ import absolute_import
 import os.path
 import glob
@@ -66,7 +65,7 @@ def setup_logging(verbose):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(
+    parser = argparse.ArgumentParser(prog='pip-dump',
         description='Rewrites requirements.txt to match your virtualenv.'
     )
     parser.add_argument(
@@ -161,7 +160,3 @@ def main():
     if not args.files:
         args.files = find_default_files()
     dump_requirements(args.files, should_sort=args.should_sort)
-
-
-if __name__ == '__main__':
-    main()
