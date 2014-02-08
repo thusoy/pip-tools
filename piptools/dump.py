@@ -66,7 +66,7 @@ def setup_logging(verbose):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(
+    parser = argparse.ArgumentParser(prog='pip-dump',
         description='Rewrites requirements.txt to match your virtualenv.'
     )
     parser.add_argument(

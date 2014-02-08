@@ -39,7 +39,7 @@ except (ImportError, AttributeError):
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(
+    parser = argparse.ArgumentParser(prog='pip-review',
         description='Keeps your Python package dependencies pinned, '
                     'but fresh.')
     parser.add_argument(
